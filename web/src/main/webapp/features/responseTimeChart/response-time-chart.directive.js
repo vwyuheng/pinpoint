@@ -11,8 +11,9 @@
 	    myColors: ["#2ca02c", "#3c81fa", "#f8c731", "#f69124", "#f53034"]
 	});
 	
-	pinpointApp.directive('responseTimeChartDirective', ['responseTimeChartDirectiveConfig', 'responseTypeColor', '$timeout', 'AnalyticsService',
-        function (cfg, responseTypeColor, $timeout, analyticsService) {
+	pinpointApp.directive('responseTimeChartDirective', ['responseTimeChartDirectiveConfig', '$timeout', 'AnalyticsService', 'PreferenceService',
+        function (cfg, $timeout, analyticsService, preferenceService ) {
+			var responseTypeColor = preferenceService.getResponseTypeColor();
             return {
                 template: '<div></div>',
                 replace: true,
@@ -59,7 +60,7 @@
                                 "type": "serial",
                                 "theme": "none",
                                 "dataProvider": data,
-                                "startDuration": 1,
+                                "startDuration": 0,
                                 "valueAxes": [
                                     {
                                         "gridAlpha": 0.1,
@@ -100,7 +101,7 @@
                             oChart.addListener('clickGraphItem', function(event) {
                             	analyticsService.send(analyticsService.CONST.MAIN, analyticsService.CONST.CLK_RESPONSE_GRAPH);
                             	if ( event.item.category == "Error" ) {
-                            		scope.$emit('responseTimeChartDirective.showErrorTransacitonList' );
+                            		scope.$emit('responseTimeChartDirective.showErrorTransacitonList', event.item.category );
                             	}
                             	if ( useFilterTransaction ) {
                             		scope.$emit('responseTimeChartDirective.itemClicked.' + scope.namespace, event.item.serialDataItem.dataContext);
