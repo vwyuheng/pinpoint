@@ -26,6 +26,11 @@ public class DubboProviderInterceptor extends SpanSimpleAroundInterceptor {
         if (DubboConstants.MONITOR_SERVICE_FQCN.equals(invoker.getInterface().getName())) {
             return traceContext.disableSampling();
         }
+        // Ignore dynamicadmin service.
+        if (DubboConstants.FLOWCTL_SERVICE_FQCN.equals(invoker.getInterface().getName())) {
+            return traceContext.disableSampling();
+        }
+
 
         RpcInvocation invocation = (RpcInvocation) args[0];
 

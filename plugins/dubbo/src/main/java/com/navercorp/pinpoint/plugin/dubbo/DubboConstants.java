@@ -26,4 +26,5 @@ public interface DubboConstants {
     String META_FLAGS = "_DUBBO_FLAGS";
 
     String MONITOR_SERVICE_FQCN = "com.alibaba.dubbo.monitor.MonitorService";
+    String FLOWCTL_SERVICE_FQCN = "com.gome.architect.dynamicadmin.service.DynaBeanService";
 }

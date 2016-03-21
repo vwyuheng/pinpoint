@@ -93,6 +93,10 @@ public class DubboConsumerInterceptor implements AroundInterceptor1 {
         if (DubboConstants.MONITOR_SERVICE_FQCN.equals(invoker.getInterface().getName())) {
             return null;
         }
+        // Ignore dynamicadmin service.
+        if (DubboConstants.FLOWCTL_SERVICE_FQCN.equals(invoker.getInterface().getName())) {
+            return null;
+        }
 
         return traceContext.currentTraceObject();
     }

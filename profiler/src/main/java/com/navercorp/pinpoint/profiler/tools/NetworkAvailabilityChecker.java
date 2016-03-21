@@ -57,11 +57,11 @@ public class NetworkAvailabilityChecker implements PinpointTools {
 
             String collectorStatIp = profilerConfig.getCollectorStatServerIp();
             int collectorStatPort = profilerConfig.getCollectorStatServerPort();
-            udpStatSender = new UdpDataSender(collectorStatIp, collectorStatPort, "UDP-STAT", 10);
+            udpStatSender = new UdpDataSender(collectorStatIp, collectorStatPort, "UDP-STAT", 1000);
 
             String collectorSpanIp = profilerConfig.getCollectorSpanServerIp();
             int collectorSpanPort = profilerConfig.getCollectorSpanServerPort();
-            udpSpanSender = new UdpDataSender(collectorSpanIp, collectorSpanPort, "UDP-SPAN", 10);
+            udpSpanSender = new UdpDataSender(collectorSpanIp, collectorSpanPort, "UDP-SPAN", 1000);
 
             String collectorTcpIp = profilerConfig.getCollectorTcpServerIp();
             int collectorTcpPort = profilerConfig.getCollectorTcpServerPort();

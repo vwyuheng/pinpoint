@@ -52,7 +52,7 @@ public class HttpRequestIT {
             }
         });
 
-        GenericUrl url = new GenericUrl("http://google.com");
+        GenericUrl url = new GenericUrl("http://baidu.com");
         HttpRequest request = null;
         HttpResponse response = null;
         try {

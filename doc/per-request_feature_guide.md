@@ -172,11 +172,11 @@ Before
 </appender >
 
 After
-<appender name = "STDOUT" class= "ch.qos.logback.core.ConsoleAppender" >
+<appender name = "STDOUT" class= "ch.qos.logback.core.ConsoleAppender">
      <layout class = "ch.qos.logback.classic.PatternLayout">
-          <Pattern >%d{HH:mm} %-5level %logger{36} - [TxId : %X{PtxId} , SpanId : %X{PspanId}] %msg%n</Pattern >
-     </layout >
-</appender >
+          <Pattern>%d{HH:mm} %-5level %logger{36} - [TxId : %X{PtxId} , SpanId : %X{PspanId}] %msg%n</Pattern>
+     </layout>
+</appender>
 ```
 
 **2-3 Checking log message**
